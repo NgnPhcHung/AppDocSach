@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TouchableHighlight, StyleSheet, Button } from 'react-native'
+import { View, TouchableHighlight, StyleSheet, Text } from 'react-native'
 
 import CustomButton from '../Button/ButtonCustom'
 
@@ -26,10 +26,13 @@ export default class Content extends Component {
         </View>
         <View style={styles.onLine} >
           <View>
-            <CustomButton
+            {/* <CustomButton
               onPress={() => this.props.navigation.navigate('Details')}
               text="Online Book"
-            />
+            /> */}
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('Details')}>
+              <Text>Online Book</Text>
+            </TouchableHighlight>
           </View>
         </View>
       </View>

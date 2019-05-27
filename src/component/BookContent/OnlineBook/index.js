@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, Dimensions } from 'react-native'
 import OnlineBookModal from './OnlineBookContainer'
 import CustomButton from '../../Button/ButtonCustom'
 import { WebView } from 'react-native';
@@ -34,11 +34,14 @@ export default class index extends Component {
   }
   render() {
     const { isOpenModalReducer, change } = this.props
-    const source = {uri:'http://samples.leanpub.com/thereactnativebook-sample.pdf',cache:true};
+    const sourse = require('./PDF/DamUocMo.pdf')
     return (
-      <Pdf 
-        sourse = {{uri:'http://samples.leanpub.com/thereactnativebook-sample.pdf'}}
-      />
+      <View style={styles.container} >
+        <Pdf
+          source={sourse}
+          style = { styles.pdf }
+        />
+      </View>
     )
   }
 }
@@ -46,12 +49,15 @@ const styles = {
   button: {
     width: 50,
     height: 40
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 25,
+  },
+  pdf: {
+    flex: 1,
+    width: Dimensions.get('window').width,
   }
 }
-
-      // <WebView
-      //   source={{ uri: this.state.itemURL }}
-      //   startInLoadingState={true}
-      //   scalesPageToFit={true}
-      //   style={{ height: "100%", width: "100%", flex: 1 }}
-      // />
